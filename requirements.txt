@@ -4,4 +4,5 @@ seaborn
 matplotlib
 imblearn
 xgboost
+dill
 -e .
