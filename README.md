@@ -106,24 +106,52 @@ Attributes of our datasets along with their description are listed below:
  * **2** represents a medium amount of damage
  * **3** represents almost complete destruction
   
-## 3. Exploratory Data Analysis (EDA)
+## 3. Exploratory Data Analysis (EDA) and Visualization
 
 It is a valuable tool for understanding and gaining insights from data, and uncovering any issues or anomalies. It can also be used to generate ideas for further research or to communicate findings to others, and is an important step in the machine learning process.
 
-Some common techniques we used in EDA include:
+Some common EDA steps we followed in the project are:
 
-* __Visualizing the data:__ Plotting the data help you get a sense of the distribution and relationships between variables. for eg: I plotted the dataset in the scatter plot and find the line (regression line) of best fit.
+* __overview of the data:__ Overviewed the dataset, including the number of rows and columns, column names, data types, and missing values.
 
-* __Summarizing the data:__ Calculating summary statistics such as mean, median, and standard deviation can help you get a sense of the central tendency and spread of the data.
+* __Summarizing the data:__ Calculated summary statistics for the numerical features in the dataset, such as count, mean, standard deviation, minimum, and maximum values to get a sense of the central tendency and spread of the data. We also performed summary statistics for the categorical features in the dataset, such as count, unique values, and the most common value.
 
-* __Checking for missing values:__ Make sure there are no missing values in the data set, as these can cause issues with analysis and modeling.
+* __Checking for missing values:__ To make sure there are no missing values in the data set, as these can cause issues with analysis and modeling.
 
-* __Checking for outliers:__ Look for any unusual or extreme values that could be causing skews in the data.
+* __Distribution of each binary feature:__ To get the proportion of each binary value to understand the distribution of binary features.
 
-## 4. Model building
-It is the process of creating a mathematical or statistical model to represent the relationships and patterns in a dataset. Model building is a common task in machine learning and machine learning, as it allows you to make predictions or inferences about the data based on the patterns identified in the model.
+* __Visualize the distribution of the target variable (damage_grade):__ To understand the balance of the classes in the dataset.
 
-There are many different types of models that can be built, including linear models, logistic regression models, decision trees, and neural networks. The choice of model will depend on the type of data and the specific goals of the analysis.
+* __Visualize the distribution of each numeric feature and detect outliers:__ To identify any unusual values or patterns that could be causing skews in the data.
+
+* __Visualize the correlation between the numeric features:__ To identify any strong correlations or multicollinearity between the features.
+
+## 4. Data Preprocessing and Handling Imbalanced Datasets
+
+Data preprocessing is a technique that is used to convert raw data into a clean data set. In other words, whenever the data is gathered from different sources it is collected in raw format which is not feasible for analysis. Therefore, certain steps are executed to convert the data into a small clean data set.
+
+Some common data preprocessing steps we followed are:
+
+* __Winsorization:__ To handle the outliers in each numerical feature and get rid of the effect of extreme values. Specifically, for each continuous feature, we applied winsorization with limits=[0.05, 0.05] using the winsorize() function from the scipy.stats library.
+
+* __Standard Feature scaling:__ To normalize the numerical features to have mean=0 and standard deviation=1.
+
+* __Encoding of categorical features:__ To convert the categorical features to numerical features. Specifically, we used the get_dummies() function from the pandas library to perform one-hot encoding on the specified columns.
+
+* __Variance thresholding:__ To remove low variance features that may not contribute much to the model's predictive power. Specifically, we used the VarianceThreshold() function from the sklearn.feature_selection library with a threshold of 0.02 to remove low variance features.
+
+* __Handling the imbalanced dataset:__ Apply different techniques such as Random Undersampling, Random Oversampling, and SMOTE. Random Undersampling was used to reduce the number of samples in the majority class. Random Oversampling was used to increase the number of samples in the minority class. Finally, we used SMOTE (Synthetic Minority Over-sampling Technique) to generate synthetic samples for the minority class. We applied these techniques using the RandomUnderSampler(), RandomOverSampler(), and SMOTE() functions from the imblearn library.
+
+## 5. Model Selection and Fitting
+Model selection and fitting is a critical step in the process of creating a mathematical or statistical model that accurately represents the relationships and patterns in a given dataset. This step is a common task in machine learning, as it allows you to make predictions or inferences about the data based on the patterns identified in the model.
+
+In our project, we applied various machine learning algorithms to predict the damage grade of buildings. The algorithms used for model training and evaluation included:
+ * Random Forest Classifier
+ * Decision Tree Classifier
+ * XGBoost, KMeansClassifier
+ * Softmax Regression
+ 
+These models were trained on our dataset to predict the level of damage to buildings caused by earthquakes.
 
 We used `Logistic Regression` model in this project.
 
@@ -137,7 +165,7 @@ To calculate evaluation metrics we performed the following steps:
 * Use the model to make predictions on the test set.
 * Calculate the evaluation metrics using the predictions and the true values.
 
-The *performance evaluation metrics* we used for analysis in our project is *micro-averaged F1-score*. The micro-averaged F1 score is a metric that makes sense for multi-class data distributions. It is a suitable performance metric for imbalanced datasets because it takes into account both precision and recall of the minority class. 
+We evaluated the performance of each model using the *micro-averaged F1-score*, a widely used performance metric in machine learning. The micro-averaged F1 score is a metric that makes sense for multi-class data distributions. It is a suitable performance metric for imbalanced datasets because it takes into account both precision and recall of the minority class.
 
 <u>For example<u>:  In the case of our earthquake damage prediction dataset, the majority class (level 2 damage) has significantly more instances than the other two classes (level 1 and 3 damage), making it an imbalanced dataset. In such cases, accuracy can be misleading because it may be high due to the high number of correctly classified majority class instances, while the minority class instances are misclassified. F1-score considers both precision and recall, and micro-averaging of F1-score provides an overall score that takes into account the performance of all classes.
 
