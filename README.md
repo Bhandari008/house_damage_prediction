@@ -112,9 +112,9 @@ It is a valuable tool for understanding and gaining insights from data, and unco
 
 Some common EDA steps we followed in the project are:
 
-* __overview of the data:__ Overviewed the dataset, including the number of rows and columns, column names, data types, and missing values.
+* __Overview of the data:__  To provide a summary of the data, including the number of rows and columns, column names, data types, and missing values.
 
-* __Summarizing the data:__ Calculated summary statistics for the numerical features in the dataset, such as count, mean, standard deviation, minimum, and maximum values to get a sense of the central tendency and spread of the data. We also performed summary statistics for the categorical features in the dataset, such as count, unique values, and the most common value.
+* __Summarizing the data:__ To get summary statistics for the numerical features in the dataset, such as count, mean, standard deviation, minimum, and maximum values to get a sense of the central tendency and spread of the data. We also performed summary statistics for the categorical features in the dataset, such as count, unique values, and the most common value.
 
 * __Checking for missing values:__ To make sure there are no missing values in the data set, as these can cause issues with analysis and modeling.
 
@@ -148,12 +148,11 @@ Model selection and fitting is a critical step in the process of creating a math
 In our project, we applied various machine learning algorithms to predict the damage grade of buildings. The algorithms used for model training and evaluation included:
  * Random Forest Classifier
  * Decision Tree Classifier
- * XGBoost, KMeansClassifier
+ * XGBoost 
+ * KMeansClassifier
  * Softmax Regression
  
 These models were trained on our dataset to predict the level of damage to buildings caused by earthquakes.
-
-We used `Logistic Regression` model in this project.
 
 ## 8. Performance evaluation
 It is an important step in the model building process, as it allows you to assess the effectiveness of the model and make any necessary adjustments to improve its performance. It is also important to evaluate the performance of a model on unseen data, as this can provide a more realistic assessment of its performance on real-world tasks. 
