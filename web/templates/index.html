@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Input Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>House Damage Prediction</h1>
+    <h2>Select Algorithm</h2>
+    <form action = "{{url_for('feature_importance') }}" method="POST">
+        <select name="algorithm" id="algorithm">
+            <option value="softmax">Softmax Regression</option>
+            <option value="randomforest">Random Forest</option>
+            <option value="decisiontree">Decision Tree</option>
+            <option value="xgboost">XGBoost</option>
+          </select>   
+        <br>
+        <input type="submit" value = "See Feature Importance" >       
+    </form>
+    <form action = "{{url_for('predict') }}" method="GET">
+        <input type="submit" value = "Click to see the damage grade" >       
+    </form>
+    <p style="background-color: {{color}};">{{prediction}}</p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>House Damage Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <h1>House Damage Prediction</h1>
+    <h2>Please select one algorithm to make prediction</h2>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <select name="algorithm" id="algorithm">
+            <option value="softmax">Softmax Regression</option>
+            <option value="randomforest">Random Forest</option>
+            <option value="decisiontree">Decision Tree</option>
+            <option value="xgboost">XGBoost</option>
+          </select>   
+        <br>
+    <h2>Please fill the following details</h2>
+      {% for feature_name in feature_names %}
+        <label for="{{ feature_name }}">{{ feature_name }}</label>
+        <input type="number" id="{{ feature_name }}" name="{{ feature_name }}">
+      {% endfor %}
+      <br><br>
+      <input type="submit" value="Predict">
+    </form>
+  </body>
+</html>

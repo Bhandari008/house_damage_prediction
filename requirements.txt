@@ -6,4 +6,5 @@ imblearn
 xgboost
 dill
 mlflow
+flask
 -e .
