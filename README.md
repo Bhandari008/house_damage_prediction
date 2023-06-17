@@ -149,7 +149,6 @@ In our project, we applied various machine learning algorithms to predict the da
  * Random Forest Classifier
  * Decision Tree Classifier
  * XGBoost 
- * KMeansClassifier
  * Softmax Regression
  
 These models were trained on our dataset to predict the level of damage to buildings caused by earthquakes.
