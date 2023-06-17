@@ -1,10 +1,8 @@
 ## House Damage Prediction Using Machine Learning
 
-
-
 **Note:**
-Create folders inside notebook/data with foldername as SMOTE, Original, OverSampling, UnderSampling
-
+* Create folders inside notebook/data with foldername as SMOTE, Original, OverSampling, UnderSampling
+* Run `pip install -r requirments.txt` to install all the required libraries and packages
 
 
 MlFlow Results:
