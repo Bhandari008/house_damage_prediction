@@ -1,10 +1,8 @@
 ## House Damage Prediction Using Machine Learning
 
-
-
 **Note:**
-Create folders inside notebook/data with foldername as SMOTE, Original, OverSampling, UnderSampling
-
+* Create folders inside notebook/data with foldername as SMOTE, Original, OverSampling, UnderSampling
+* Run `pip install -r requirments.txt` to install all the required libraries and packages
 
 
 MlFlow Results:
@@ -149,7 +147,6 @@ In our project, we applied various machine learning algorithms to predict the da
  * Random Forest Classifier
  * Decision Tree Classifier
  * XGBoost 
- * KMeansClassifier
  * Softmax Regression
  
 These models were trained on our dataset to predict the level of damage to buildings caused by earthquakes.
